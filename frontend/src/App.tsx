@@ -1,12 +1,30 @@
-import "./App.css";
+import {
+  Route,
+  createRoutesFromElements,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-function App() {
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<SomePage />} />
+      <Route path="/some" element={<SomePage />} />
+    </>,
+  ),
+);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
+
+export default App;
+
+function SomePage() {
   return (
     <>
-      <Button />
+      <Button>SomePage</Button>
     </>
   );
 }
-
-export default App;
